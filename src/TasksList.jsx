@@ -1,89 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import CreateTask from './CreateTask';
 import Task from './Task'
+import { createTask, fetchTaskList, updateTask, deleteTask } from './tasksGateway'
 
-// const tasksUrl = 'https://606d506b603ded0017503600.mockapi.io/tasks/tasks';
-const tasksUrl = 'https://crudcrud.com/api/e0cdb7b71f36498c942a21b9fdbed5b1/tasks'
 
 const TasksList = (props) => {
     const [taskList, setList] = useState([]);
 
     useEffect(() => {
-        fetchTaskList();
+        fetchTaskList().then(tasks => setList([...tasks]));
     }, [])
 
-    const fetchTaskList = () => {
-        fetch(tasksUrl)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-            }).then(taskList => {
-                const tasks = taskList.map(({ _id, ...task }) => ({
-                    id: _id,
-                    ...task
-                }))
-                setList([...tasks]);
-            })
+    const fetchTask = () => {
+        fetchTaskList()
+            .then(taskList => setList([...taskList]))
     }
 
     const addNewTask = (text) => {
         const newTask = {
             text,
             done: false,
-            // id: Math.random()
         }
-
-        fetch(tasksUrl, {
-            method: "POST",
-            headers: {
-                'Content-Type': "application/json,utf-8"
-            },
-            body: JSON.stringify(newTask)
-        }).then(res => {
-            if (res.ok) {
-                fetchTaskList()
-            } else {
-                throw new Error('Failed to create task')
-            }
-
-        })
+        createTask(newTask)
+            .then(() => fetchTask())
     }
 
 
     const handleTaskStatusChange = (id) => {
-        let { done, text } = taskList.find(task => task.id === id);
+        const { done, text } = taskList.find(task => task.id === id);
         const updatedTusk = {
             text,
             done: !done
         };
-        fetch(`${tasksUrl}/${id}`, {
-            method: "PUT",
-            headers: {
-                'Content-Type': "application/json,utf-8"
-            },
-            body: JSON.stringify(updatedTusk)
-        }).then(res => {
-            if (res.ok) {
-                fetchTaskList();
-            } else {
-                throw new Error('Failed to updated task')
-            }
-            console.log(JSON.stringify(updatedTusk));
-        })
+        updateTask(id, updatedTusk).then(() => fetchTask())
     }
 
 
     const handleTaskDelete = (id) => {
-        fetch(`${tasksUrl}/${id}`, {
-            method: "DELETE",
-        }).then(res => {
-            if (res.ok) {
-                fetchTaskList();
-            } else {
-                throw new Error('Failed to delete task')
-            }
-        })
+        deleteTask(id).then(() => fetchTask())
     }
 
     const reverseTaskList = taskList
