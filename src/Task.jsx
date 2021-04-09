@@ -12,7 +12,9 @@ const Task = ({ task, onChange, onDelete }) => {
                 defaultChecked={task.done}
                 onChange={() => onChange(task.id)} />
             <p className='list-item__text'>{task.text}</p>
-            <button onClick={() => onDelete(task.id)} className='list-item__delete'>+</button>
+            <button
+                onClick={() => onDelete(task.id)}
+                className='list-item__delete'>+</button>
         </li>)
 }
 

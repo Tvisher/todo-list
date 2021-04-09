@@ -4,7 +4,9 @@ import TodoList from './TodoList'
 
 const App = () => {
     return (
-        <div className='container'><TodoList /></div>
+        <div className='container'>
+            <TodoList />
+        </div>
     )
 }
 

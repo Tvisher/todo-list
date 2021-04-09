@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TasksList/> Should display sorted by done tasks list 1`] = `
+<div
+  className="todo-list"
+>
+  <ul
+    className="list"
+  >
+    <Task
+      key="6"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": false,
+          "id": 6,
+          "text": "text 6",
+        }
+      }
+    />
+    <Task
+      key="5"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": false,
+          "id": 5,
+          "text": "text 5",
+        }
+      }
+    />
+    <Task
+      key="3"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": false,
+          "id": 3,
+          "text": "text 3",
+        }
+      }
+    />
+    <Task
+      key="2"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": false,
+          "id": 2,
+          "text": "text 2",
+        }
+      }
+    />
+    <Task
+      key="4"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": true,
+          "id": 4,
+          "text": "text 4",
+        }
+      }
+    />
+    <Task
+      key="1"
+      onChange={[MockFunction]}
+      onDelete={[MockFunction]}
+      task={
+        Object {
+          "done": true,
+          "id": 1,
+          "text": "text 1",
+        }
+      }
+    />
+  </ul>
+</div>
+`;

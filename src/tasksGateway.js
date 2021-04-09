@@ -1,4 +1,4 @@
-const tasksUrlData = 'https://crudcrud.com/api/e0cdb7b71f36498c942a21b9fdbed5b1/tasks'
+const tasksUrlData = 'https://crudcrud.com/api/5916f481e564460c9bc0642603cf69ee/tasks'
 
 export const createTask = (taskData) => {
     return fetch(tasksUrlData, {
@@ -24,11 +24,11 @@ export const fetchTaskList = () => {
                 throw new Error('Failed to fetch task list')
             }
         }).then(taskList => {
-            const tasks = taskList.map(({ _id, ...task }) => ({
+            return taskList.map(({ _id, ...task }) => ({
                 id: _id,
                 ...task
             }))
-            return tasks
+
         })
 }
 

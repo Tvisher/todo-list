@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Task/> Shoud display done task 1`] = `
+<li
+  className="list-item list-item_done"
+>
+  <input
+    className="list-item__checkbox"
+    defaultChecked={true}
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <p
+    className="list-item__text"
+  >
+    Test text
+  </p>
+  <button
+    className="list-item__delete"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</li>
+`;
+
+exports[`<Task/> Shoud display undone task 1`] = `
+<li
+  className="list-item"
+>
+  <input
+    className="list-item__checkbox"
+    defaultChecked={false}
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <p
+    className="list-item__text"
+  >
+    Test text
+  </p>
+  <button
+    className="list-item__delete"
+    onClick={[Function]}
+  >
+    +
+  </button>
+</li>
+`;

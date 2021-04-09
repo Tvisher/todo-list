@@ -22,8 +22,10 @@ const CreateTask = ({ addNewTask }) => {
     return (
         <form className='create-task' onSubmit={readDataFromInput}>
             <input type="text"
+                placeholder='Задача...'
                 className='create-task__input'
-                value={inputValue} onChange={handleChange} />
+                value={inputValue}
+                onChange={handleChange} />
             <button type='submit' className='create-task__btn'>Create</button>
         </form>
     )

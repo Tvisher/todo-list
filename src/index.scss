@@ -22,6 +22,14 @@
   text-transform: uppercase;
 }
 
+.list {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
 .todo-list {
   padding: 15px;
   border-radius: 10px;
@@ -29,17 +37,24 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  background: rgb(231, 169, 99);
+  // background: rgb(231, 169, 99);
+  background: #333434;
   min-width: 320px;
   width: 500px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 .list-item {
+  box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.63);
   text-align: left;
   display: flex;
   padding: 10px 15px;
   align-items: center;
-  background-color: rgb(207, 138, 138);
+  background-color: #847c7c;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -49,28 +64,35 @@
     margin-bottom: 10px;
   }
   &.list-item_done {
-    opacity: 0.8;
-    background-color: rgb(49, 27, 27);
+    opacity: 1;
+    // background-color: rgba(49, 27, 27, 0.8);
+    background-color: #142c44;
     .list-item__text {
       color: #fff;
       text-decoration: line-through;
     }
   }
   transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   animation: snake 0.5s ease;
   -webkit-animation: snake 0.5s ease;
 }
 
 @keyframes snake {
   from {
-    height: 0;
+    opacity: 0;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
   }
   to {
-    height: 100%;
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
   }
 }
 
@@ -80,7 +102,9 @@
 }
 
 .list-item__text {
-  margin-right: 35px;
+  width: calc(100% - 60px);
+  word-wrap: break-word;
+
   font-size: 21px;
   font-family: Arial, Helvetica, sans-serif;
 }
