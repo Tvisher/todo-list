@@ -1,12 +1,17 @@
 import React from 'react';
-import TodoList from './TodoList'
+import TodoList from './tasks/components/TodoList'
+import { Provider } from 'react-redux'
+import store from './store';
 
 
 const App = () => {
     return (
-        <div className='container'>
-            <TodoList />
-        </div>
+        <Provider store={store}>
+            <div className='container'>
+                <TodoList />
+            </div>
+        </Provider>
+
     )
 }
 

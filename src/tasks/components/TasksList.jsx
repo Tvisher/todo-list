@@ -1,20 +1,14 @@
 import React from 'react';
-
 import Task from './Task'
 
 
 
 const TasksList = ({ taskList, handleTaskStatusChange, handleTaskDelete }) => {
 
-    const reverseTaskList = taskList
-        .slice()
-        .reverse()
-        .sort((a, b) => a.done - b.done);
-
     return (
         <div className='todo-list'>
             <ul className='list'>
-                {reverseTaskList.map(task =>
+                {taskList.map(task =>
                     <Task key={task.id}
                         task={task}
                         onChange={handleTaskStatusChange}
