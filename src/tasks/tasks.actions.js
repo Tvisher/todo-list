@@ -13,6 +13,7 @@ export const taskListResived = (taskList) => {
     }
 }
 
+
 export const getTaskList = () => {
     const thunkAction = (dispatch) => {
         tasksGateway.fetchTaskList()
@@ -31,19 +32,27 @@ export const updateTaskList = (taskId) => {
             ...task,
             done: !task.done,
         };
+        const newTasksList = tasksList
+            .filter(task => task.id !== taskId)
+            .concat(updatedTusk)
 
-        tasksGateway
-            .updateTask(taskId, updatedTusk)
-            .then(() => dispatch(getTaskList()))
+        tasksGateway.updateTask(taskId, updatedTusk)
+        dispatch(taskListResived(newTasksList))
     }
     return thunkAction;
 }
 
 export const deleteTaskList = (taskId) => {
-    const thunkAction = (dispatch) => {
+    const thunkAction = (dispatch, getState) => {
+        const state = getState();
+        const tasksList = taskListSelector(state)
+        const newTasksList = tasksList
+            .filter(task => task.id !== taskId)
+
         tasksGateway
             .deleteTask(taskId)
-            .then(() => dispatch(getTaskList()))
+
+        dispatch(taskListResived(newTasksList))
     }
     return thunkAction;
 }

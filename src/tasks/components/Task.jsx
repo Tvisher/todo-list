@@ -7,14 +7,17 @@ const Task = ({ task, onChange, onDelete }) => {
 
     return (
         <li className={listItemClasses}>
-            <input type="checkbox"
-                className='list-item__checkbox'
-                defaultChecked={task.done}
-                onChange={() => onChange(task.id)} />
-            <p className='list-item__text'>{task.text}</p>
+            <label>
+                <input type="checkbox"
+                    className='list-item__checkbox'
+                    defaultChecked={task.done}
+                    onChange={() => onChange(task.id)} />
+                <p className='list-item__text'>{task.text}</p>
+            </label>
             <button
                 onClick={() => onDelete(task.id)}
-                className='list-item__delete'>+</button>
+                className='list-item__delete'>
+            </button>
         </li>)
 }
 

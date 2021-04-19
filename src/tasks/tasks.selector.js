@@ -4,5 +4,5 @@ export const sortedTaskListSelector = state => {
     return taskListSelector(state)
         .slice()
         .reverse()
-        .sort((a, b) => a.done - b.done);
+    // .sort((a, b) => a.done - b.done);
 };

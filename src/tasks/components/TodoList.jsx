@@ -14,14 +14,18 @@ const TodoList = ({ getTaskList, tasks, updateTaskList, deleteTaskList, createTa
 
 
     return (
-        <>
-            <h1 className='todo-title'>Todo List</h1>
-            <CreateTask addNewTask={createTask} />
-            <TasksList
-                taskList={tasks}
-                handleTaskStatusChange={updateTaskList}
-                handleTaskDelete={deleteTaskList} />
-        </>
+        <div className='todo-wrapper'>
+            <div className='todo-title__head'>
+                <h1 className='todo-title'>ToDo List</h1>
+            </div>
+            <div className='todo__body'>
+                <CreateTask addNewTask={createTask} />
+                <TasksList
+                    taskList={tasks}
+                    handleTaskStatusChange={updateTaskList}
+                    handleTaskDelete={deleteTaskList} />
+            </div>
+        </div>
     )
 }
 

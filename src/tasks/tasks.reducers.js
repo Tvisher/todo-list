@@ -1,4 +1,6 @@
-import { TASK_LIST_RESIVED } from './tasks.actions'
+import {
+    TASK_LIST_RESIVED,
+} from './tasks.actions'
 
 
 const initialState = {
@@ -11,7 +13,7 @@ export const tasksReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasksList: action.payload.taskList
-            };
+            }
 
         default:
             return state
